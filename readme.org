@@ -1,5 +1,58 @@
 * About
 A repository demonstrating the usage of ~pytest~ within the ~meson-python~
 ecosystem. Reproducibility is ensured via ~pixi~ and the ~conda-ecosystem~.
+** Notes
+- ~pytest-cov~ will not produce coverage for C++ by default
+- To build and locally install an editable variant of the package you will need
+  ~--no-build-isolation~, however, this means the build dependencies have to be
+  present (i.e. ~pip install ninja meson meson-python pybind11~)
+** Coverage
+First we need to add some tools (already part of the environment):
+#+begin_src bash
+pixi add lcov gcovr
+# For editable installation, discussed above
+pip install ninja meson meson-python pybind11
+#+end_src
+*** Python Coverage
+For starters, consider:
+#+begin_src bash
+pip install -e .[test] --no-build-isolation
+# immediate visualization
+pytest --cov=pybtst2024
+#+end_src
+Or if we want to store it for later:
+#+begin_src bash
+pytest --cov=pybtst2024 --cov-report=lcov
+# Written out to coverage.lcov
+lcov --list coverage.lcov
+#+end_src
+*** Combined Coverage
+To generate C++ coverage along with the Python bits, we can use the command line
+to invoke ~meson~ with the appropriate options [fn::As noted [[https://github.com/pybind/pybind11/discussions/4141#discussioncomment-7068063][here]]]:
+#+begin_src bash
+python -m pip install -ve . --no-build-isolation -Csetup-args=-Dbuildtype=debug -Csetup-args=-Db_coverage=true -Cbuilddir=bbdir
+pytest --cov=pybtst2024 --cov-report=lcov
+lcov --output-file coverage.cpp --capture --directory bbdir
+lcov --output-file coverage.cpp --extract coverage.cpp $PWD/src/"*"
+cat coverage.lcov coverage.cpp > coverage.combined
+lcov --list coverage.combined
+#+end_src
+Which will produce the coverage for both C++ and Python sections:
+#+begin_src bash
+Reading tracefile coverage.combined
+                  |Lines       |Functions  |Branches
+Filename          |Rate     Num|Rate    Num|Rate     Num
+========================================================
+[/home/rgoswami/Git/Github/sqm_rg/pytest_demo_2024/src/]
+money.hpp         |80.0%      5|80.0%     5|    -      0
+pyb_core.cpp      | 100%      9| 100%     2|    -      0
+
+[src/pybtst2024/]
+__init__.py       | 100%      1|    -     0|    -      0
+_util.py          | 100%      2|    -     0|    -      0
+currency.py       | 0.0%     23|    -     0|    -      0
+========================================================
+            Total:|40.0%     40|85.7%     7|    -      0
+#+end_src
 ** License
 MIT

@@ -1,3 +1,5 @@
+# Added
+coverage*
 # pixi environments
 .pixi
 *.egg-info

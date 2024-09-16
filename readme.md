@@ -1,15 +1,16 @@
 
 # Table of Contents
 
-1.  [About](#org8c9eede)
-    1.  [Notes](#orgdc0710f)
-    2.  [Coverage](#org345b143)
-        1.  [Python Coverage](#orga63d408)
-        2.  [Combined Coverage](#orgbf69e97)
-    3.  [License](#org906840a)
+1.  [About](#orgb57e3f9)
+    1.  [Notes](#org2b80342)
+    2.  [Coverage](#orgc7bd757)
+        1.  [Python Coverage](#org96bf26c)
+        2.  [Combined Coverage](#org9c5bc9b)
+        3.  [Pretty view](#org6b055c4)
+    3.  [License](#org88877df)
 
 
-<a id="org8c9eede"></a>
+<a id="orgb57e3f9"></a>
 
 # About
 
@@ -17,7 +18,7 @@ A repository demonstrating the usage of `pytest` within the `meson-python`
 ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
 
 
-<a id="orgdc0710f"></a>
+<a id="org2b80342"></a>
 
 ## Notes
 
@@ -27,7 +28,7 @@ ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
     present (i.e. `pip install ninja meson meson-python pybind11`)
 
 
-<a id="org345b143"></a>
+<a id="orgc7bd757"></a>
 
 ## Coverage
 
@@ -38,7 +39,7 @@ First we need to add some tools (already part of the environment):
     pip install ninja meson meson-python pybind11
 
 
-<a id="orga63d408"></a>
+<a id="org96bf26c"></a>
 
 ### Python Coverage
 
@@ -55,14 +56,14 @@ Or if we want to store it for later:
     lcov --list coverage.lcov
 
 
-<a id="orgbf69e97"></a>
+<a id="org9c5bc9b"></a>
 
 ### Combined Coverage
 
 To generate C++ coverage along with the Python bits, we can use the command line
 to invoke `meson` with the appropriate options <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>:
 
-    python -m pip install -ve . --no-build-isolation -Csetup-args=-Dbuildtype=debug -Csetup-args=-Db_coverage=true -Cbuilddir=bbdir
+    python -m pip install -ve .[test] --no-build-isolation -Csetup-args=-Dbuildtype=debug -Csetup-args=-Db_coverage=true -Cbuilddir=bbdir
     pytest --cov=pybtst2024 --cov-report=lcov
     lcov --output-file coverage.cpp --capture --directory bbdir
     lcov --output-file coverage.cpp --extract coverage.cpp $PWD/src/"*"
@@ -89,7 +90,21 @@ Which will produce the coverage for both C++ and Python sections:
 Or in a single `pixi` invocation, `pixi run cover`.
 
 
-<a id="org906840a"></a>
+<a id="org6b055c4"></a>
+
+### Pretty view
+
+It is possible to get a better understanding of what is covered by using `genhtml`.
+
+    pixi run cover
+    genhtml -o covHTML coverage.combined
+    python -m http.server -d covHTML
+
+Where a much more visual depiction can be experienced at `localhost:8000`, and
+the steps above can also be encapsulated into a `pixi run covhttp` task.
+
+
+<a id="org88877df"></a>
 
 ## License
 

@@ -15,9 +15,10 @@ py.extension_module(
   subdir: 'pybtst2024',
 )
 
-# main package
+# python packages
 py.install_sources([
     'src/pybtst2024/__init__.py',
+    'src/pybtst2024/_util.py',
   ],
   pure: false, # install next to compiled extension
   subdir: 'pybtst2024'

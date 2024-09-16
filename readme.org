@@ -54,5 +54,6 @@ currency.py       | 0.0%     23|    -     0|    -      0
 ========================================================
             Total:|40.0%     40|85.7%     7|    -      0
 #+end_src
+Or in a single ~pixi~ invocation, ~pixi run cover~.
 ** License
 MIT

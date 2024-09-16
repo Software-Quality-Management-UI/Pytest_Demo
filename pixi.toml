@@ -8,6 +8,45 @@ platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 version = "0.1.0"
 
 [tasks]
+cov_install = { cmd = [
+    "python", "-m", "pip", "install", "-ve", ".",
+    "--no-build-isolation",
+    "-Csetup-args=-Dbuildtype=debug",
+    "-Csetup-args=-Db_coverage=true",
+    "-Cbuilddir=bbdir",
+] }
+
+# Run pytest with coverage
+cov_test = { cmd = [
+    "pytest",
+    "--cov=pybtst2024",
+    "--cov-report=lcov"
+], depends-on = ["cov_install"] }
+
+# Capture coverage data with lcov
+lcov_capture = { cmd = [
+    "lcov",
+    "--output-file", "coverage.cpp",
+    "--capture",
+    "--directory", "bbdir"
+], depends-on = ["cov_test"] }
+
+# Extract coverage data related to the source directory
+lcov_extract = { cmd = [
+    "lcov",
+    "--output-file", "coverage.cpp",
+    "--extract", "coverage.cpp", "$PWD/src/*"
+], depends-on = ["lcov_capture"] }
+
+# Combine the lcov reports
+lcov_combine = { cmd = [
+    "sh", "-c", "cat coverage.lcov coverage.cpp > coverage.combined"
+], depends-on = ["lcov_extract"] }
+
+cover = { cmd = [
+    "lcov",
+    "--list", "coverage.combined"
+], depends-on = ["lcov_combine"] }
 
 [dependencies]
 python = "==3.11"

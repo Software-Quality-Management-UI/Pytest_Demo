@@ -48,6 +48,16 @@ cover = { cmd = [
     "--list", "coverage.combined"
 ], depends-on = ["lcov_combine"] }
 
+covhtml = { cmd = [
+    "genhtml",
+    "-o", "covHTML", "coverage.combined"
+], depends-on = ["cover"] }
+
+covhttp = { cmd = [
+"python", "-m", "http.server", "-d", "covHTML"
+], depends-on = ["covhtml"] }
+
+
 [dependencies]
 python = "==3.11"
 pip = ">=24.2,<25"

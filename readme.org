@@ -30,7 +30,7 @@ lcov --list coverage.lcov
 To generate C++ coverage along with the Python bits, we can use the command line
 to invoke ~meson~ with the appropriate options [fn::As noted [[https://github.com/pybind/pybind11/discussions/4141#discussioncomment-7068063][here]]]:
 #+begin_src bash
-python -m pip install -ve . --no-build-isolation -Csetup-args=-Dbuildtype=debug -Csetup-args=-Db_coverage=true -Cbuilddir=bbdir
+python -m pip install -ve .[test] --no-build-isolation -Csetup-args=-Dbuildtype=debug -Csetup-args=-Db_coverage=true -Cbuilddir=bbdir
 pytest --cov=pybtst2024 --cov-report=lcov
 lcov --output-file coverage.cpp --capture --directory bbdir
 lcov --output-file coverage.cpp --extract coverage.cpp $PWD/src/"*"
@@ -55,5 +55,14 @@ currency.py       | 0.0%     23|    -     0|    -      0
             Total:|40.0%     40|85.7%     7|    -      0
 #+end_src
 Or in a single ~pixi~ invocation, ~pixi run cover~.
+*** Pretty view
+It is possible to get a better understanding of what is covered by using ~genhtml~.
+#+begin_src bash
+pixi run cover
+genhtml -o covHTML coverage.combined
+python -m http.server -d covHTML
+#+end_src
+Where a much more visual depiction can be experienced at ~localhost:8000~, and
+the steps above can also be encapsulated into a ~pixi run covhttp~ task.
 ** License
 MIT

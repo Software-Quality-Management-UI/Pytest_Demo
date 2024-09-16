@@ -10,3 +10,6 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
+python = "==3.11"
+pip = ">=24.2,<25"
+pkg-config = ">=0.29.2,<0.30"

@@ -1,0 +1,12 @@
+[project]
+authors = ["Rohit Goswami <rog32 [at] hi.is>"]
+channels = ["conda-forge"]
+description = "Pybind11 meson-python pytest demo"
+name = "pytest_demo_2024"
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]

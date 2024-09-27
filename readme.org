@@ -1,4 +1,7 @@
 * About
+[[https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo][https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/pipeline.svg]]
+[[https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo][https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/coverage.svg]]
+
 A repository demonstrating the usage of ~pytest~ within the ~meson-python~
 ecosystem. Reproducibility is ensured via ~pixi~ and the ~conda-ecosystem~.
 Includes Continuous Integration.

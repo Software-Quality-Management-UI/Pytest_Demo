@@ -1,25 +1,28 @@
 
 # Table of Contents
 
-1.  [About](#org36fd592)
-    1.  [Notes](#orgb57234c)
-    2.  [Coverage](#org0615afd)
-        1.  [Python Coverage](#orgd73d5a7)
-        2.  [Combined Coverage](#org7a168bb)
-        3.  [Pretty view](#orgb6c435e)
-    3.  [License](#orge4d261b)
+1.  [About](#org95236d1)
+    1.  [Notes](#orgd10d54e)
+    2.  [Coverage](#orga8afd09)
+        1.  [Python Coverage](#org06220d9)
+        2.  [Combined Coverage](#orgb6da249)
+        3.  [Pretty view](#org3344294)
+    3.  [License](#orgec901ad)
 
 
-<a id="org36fd592"></a>
+<a id="org95236d1"></a>
 
 # About
+
+[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/pipeline.svg)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
+[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/coverage.svg)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
 
 A repository demonstrating the usage of `pytest` within the `meson-python`
 ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
 Includes Continuous Integration.
 
 
-<a id="orgb57234c"></a>
+<a id="orgd10d54e"></a>
 
 ## Notes
 
@@ -29,7 +32,7 @@ Includes Continuous Integration.
     present (i.e. `pip install ninja meson meson-python pybind11`)
 
 
-<a id="org0615afd"></a>
+<a id="orga8afd09"></a>
 
 ## Coverage
 
@@ -40,7 +43,7 @@ First we need to add some tools (already part of the environment):
     pip install ninja meson meson-python pybind11
 
 
-<a id="orgd73d5a7"></a>
+<a id="org06220d9"></a>
 
 ### Python Coverage
 
@@ -57,7 +60,7 @@ Or if we want to store it for later:
     lcov --list coverage.lcov
 
 
-<a id="org7a168bb"></a>
+<a id="orgb6da249"></a>
 
 ### Combined Coverage
 
@@ -91,7 +94,7 @@ Which will produce the coverage for both C++ and Python sections:
 Or in a single `pixi` invocation, `pixi run cover`.
 
 
-<a id="orgb6c435e"></a>
+<a id="org3344294"></a>
 
 ### Pretty view
 
@@ -105,7 +108,7 @@ Where a much more visual depiction can be experienced at `localhost:8000`, and
 the steps above can also be encapsulated into a `pixi run covhttp` task.
 
 
-<a id="orge4d261b"></a>
+<a id="orgec901ad"></a>
 
 ## License
 

@@ -1,24 +1,25 @@
 
 # Table of Contents
 
-1.  [About](#orgb57e3f9)
-    1.  [Notes](#org2b80342)
-    2.  [Coverage](#orgc7bd757)
-        1.  [Python Coverage](#org96bf26c)
-        2.  [Combined Coverage](#org9c5bc9b)
-        3.  [Pretty view](#org6b055c4)
-    3.  [License](#org88877df)
+1.  [About](#org36fd592)
+    1.  [Notes](#orgb57234c)
+    2.  [Coverage](#org0615afd)
+        1.  [Python Coverage](#orgd73d5a7)
+        2.  [Combined Coverage](#org7a168bb)
+        3.  [Pretty view](#orgb6c435e)
+    3.  [License](#orge4d261b)
 
 
-<a id="orgb57e3f9"></a>
+<a id="org36fd592"></a>
 
 # About
 
 A repository demonstrating the usage of `pytest` within the `meson-python`
 ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
+Includes Continuous Integration.
 
 
-<a id="org2b80342"></a>
+<a id="orgb57234c"></a>
 
 ## Notes
 
@@ -28,7 +29,7 @@ ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
     present (i.e. `pip install ninja meson meson-python pybind11`)
 
 
-<a id="orgc7bd757"></a>
+<a id="org0615afd"></a>
 
 ## Coverage
 
@@ -39,7 +40,7 @@ First we need to add some tools (already part of the environment):
     pip install ninja meson meson-python pybind11
 
 
-<a id="org96bf26c"></a>
+<a id="orgd73d5a7"></a>
 
 ### Python Coverage
 
@@ -56,7 +57,7 @@ Or if we want to store it for later:
     lcov --list coverage.lcov
 
 
-<a id="org9c5bc9b"></a>
+<a id="org7a168bb"></a>
 
 ### Combined Coverage
 
@@ -90,7 +91,7 @@ Which will produce the coverage for both C++ and Python sections:
 Or in a single `pixi` invocation, `pixi run cover`.
 
 
-<a id="org6b055c4"></a>
+<a id="orgb6c435e"></a>
 
 ### Pretty view
 
@@ -104,7 +105,7 @@ Where a much more visual depiction can be experienced at `localhost:8000`, and
 the steps above can also be encapsulated into a `pixi run covhttp` task.
 
 
-<a id="org88877df"></a>
+<a id="orge4d261b"></a>
 
 ## License
 

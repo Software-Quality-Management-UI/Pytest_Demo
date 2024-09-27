@@ -1,28 +1,28 @@
 
 # Table of Contents
 
-1.  [About](#org95236d1)
-    1.  [Notes](#orgd10d54e)
-    2.  [Coverage](#orga8afd09)
-        1.  [Python Coverage](#org06220d9)
-        2.  [Combined Coverage](#orgb6da249)
-        3.  [Pretty view](#org3344294)
-    3.  [License](#orgec901ad)
+1.  [About](#orgc76aa08)
+    1.  [Notes](#orgca05a94)
+    2.  [Coverage](#org434578d)
+        1.  [Python Coverage](#org3dc1058)
+        2.  [Combined Coverage](#org1ef82bc)
+        3.  [Pretty view](#org5b5961e)
+    3.  [License](#org9a68428)
 
 
-<a id="org95236d1"></a>
+<a id="orgc76aa08"></a>
 
 # About
 
-[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/pipeline.svg)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
-[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/coverage.svg)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
+[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/pipeline.svg?ignore_skipped=true)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
+[![img](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/badges/cidemo/coverage.svg?job=mycompile)](https://gitlab.com/tolvunarfraedi/hbv505m_2024/pytest_demo_2024/-/tree/cidemo)
 
 A repository demonstrating the usage of `pytest` within the `meson-python`
 ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
 Includes Continuous Integration.
 
 
-<a id="orgd10d54e"></a>
+<a id="orgca05a94"></a>
 
 ## Notes
 
@@ -32,7 +32,7 @@ Includes Continuous Integration.
     present (i.e. `pip install ninja meson meson-python pybind11`)
 
 
-<a id="orga8afd09"></a>
+<a id="org434578d"></a>
 
 ## Coverage
 
@@ -43,7 +43,7 @@ First we need to add some tools (already part of the environment):
     pip install ninja meson meson-python pybind11
 
 
-<a id="org06220d9"></a>
+<a id="org3dc1058"></a>
 
 ### Python Coverage
 
@@ -60,7 +60,7 @@ Or if we want to store it for later:
     lcov --list coverage.lcov
 
 
-<a id="orgb6da249"></a>
+<a id="org1ef82bc"></a>
 
 ### Combined Coverage
 
@@ -94,7 +94,7 @@ Which will produce the coverage for both C++ and Python sections:
 Or in a single `pixi` invocation, `pixi run cover`.
 
 
-<a id="org3344294"></a>
+<a id="org5b5961e"></a>
 
 ### Pretty view
 
@@ -108,7 +108,7 @@ Where a much more visual depiction can be experienced at `localhost:8000`, and
 the steps above can also be encapsulated into a `pixi run covhttp` task.
 
 
-<a id="orgec901ad"></a>
+<a id="org9a68428"></a>
 
 ## License
 

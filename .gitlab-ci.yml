@@ -14,7 +14,8 @@ mycompile:
   stage: build
   # Execute command, prefixed with pixi run
   script:
-    - pixi run pdm build
+    - pixi run pip install build
+    - pixi run python -m build -vvv
 
 # Define some unit test job to be used as (unit) test stage
 myunittest:

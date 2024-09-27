@@ -16,6 +16,7 @@ license = {text = "MIT"}
 test = [
     "pytest>=8.3.3",
     "pytest-cov[toml]>=5.0.0",
+    "ninja>=1.11.1.1",
 ]
 [build-system]
 build-backend = "mesonpy"

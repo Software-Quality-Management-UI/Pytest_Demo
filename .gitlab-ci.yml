@@ -27,5 +27,5 @@ myunittest:
   stage: test
   # Execute test command
   script:
-    - pixi run pdm sync
+    - pixi run pdm install
     - pixi run pytest

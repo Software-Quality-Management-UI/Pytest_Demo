@@ -27,5 +27,5 @@ myunittest:
   stage: test
   # Execute test command
   script:
-    - pixi run pdm install
+    - pixi run pip install .
     - pixi run pytest

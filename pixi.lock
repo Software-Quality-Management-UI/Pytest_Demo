@@ -105,6 +105,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pkg-config-0.29.2-h4bc722e_1009.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pkgconfig-1.5.5-pyhd8ed1ab_4.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/platformdirs-4.3.6-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pybind11-2.13.6-py311hd18a35c_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pybind11-global-2.13.6-py311hd18a35c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyproject_hooks-1.1.0-pyhd8ed1ab_0.conda
@@ -141,7 +143,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/91/c0/104cb6244c83fe6bc3886f144cc433db0c0c78efac5dc00e409a5a08c87d/meson_python-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6d/92/8d7aebd4430ab5ff65df2bfee6d5745f95c004284db2d8ca76dcbfd9de47/ninja-1.11.1.1-py2.py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/13/2f/0f24b288e2ce56f51c920137620b4434a38fd80583dbbe24fc2a1656c388/pybind11-2.13.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/aa/5f/bb5970d3d04173b46c9037109f7f05fc8904ff5be073ee49bb6ff00301bc/pyproject_metadata-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/78/3a/af5b4fa5961d9a1e6237b530eb87dd04aea6eb83da09d2a4073d81b54ccf/pytest_cov-5.0.0-py3-none-any.whl
@@ -244,6 +245,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/pkg-config-0.29.2-hf7e621a_1009.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pkgconfig-1.5.5-pyhd8ed1ab_4.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/platformdirs-4.3.6-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/pybind11-2.13.6-py311hf2f7c97_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/pybind11-global-2.13.6-py311hf2f7c97_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyproject_hooks-1.1.0-pyhd8ed1ab_0.conda
@@ -282,7 +285,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/91/c0/104cb6244c83fe6bc3886f144cc433db0c0c78efac5dc00e409a5a08c87d/meson_python-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/3d/6e/04ed11bb244039908f6f212cb5f3e97933e238655248e4ce307c1687ba1f/ninja-1.11.1.1-py2.py3-none-macosx_10_9_universal2.macosx_10_9_x86_64.macosx_11_0_arm64.macosx_11_0_universal2.whl
       - pypi: https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/13/2f/0f24b288e2ce56f51c920137620b4434a38fd80583dbbe24fc2a1656c388/pybind11-2.13.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/aa/5f/bb5970d3d04173b46c9037109f7f05fc8904ff5be073ee49bb6ff00301bc/pyproject_metadata-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/78/3a/af5b4fa5961d9a1e6237b530eb87dd04aea6eb83da09d2a4073d81b54ccf/pytest_cov-5.0.0-py3-none-any.whl
@@ -386,6 +388,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pkg-config-0.29.2-hde07d2e_1009.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pkgconfig-1.5.5-pyhd8ed1ab_4.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/platformdirs-4.3.6-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pybind11-2.13.6-py311h2c37856_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pybind11-global-2.13.6-py311h2c37856_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyproject_hooks-1.1.0-pyhd8ed1ab_0.conda
@@ -424,7 +428,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/91/c0/104cb6244c83fe6bc3886f144cc433db0c0c78efac5dc00e409a5a08c87d/meson_python-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/3d/6e/04ed11bb244039908f6f212cb5f3e97933e238655248e4ce307c1687ba1f/ninja-1.11.1.1-py2.py3-none-macosx_10_9_universal2.macosx_10_9_x86_64.macosx_11_0_arm64.macosx_11_0_universal2.whl
       - pypi: https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/13/2f/0f24b288e2ce56f51c920137620b4434a38fd80583dbbe24fc2a1656c388/pybind11-2.13.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/aa/5f/bb5970d3d04173b46c9037109f7f05fc8904ff5be073ee49bb6ff00301bc/pyproject_metadata-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/78/3a/af5b4fa5961d9a1e6237b530eb87dd04aea6eb83da09d2a4073d81b54ccf/pytest_cov-5.0.0-py3-none-any.whl
@@ -495,6 +498,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/pkg-config-0.29.2-h88c491f_1009.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pkgconfig-1.5.5-pyhd8ed1ab_4.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/platformdirs-4.3.6-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/pybind11-2.13.6-py311h3257749_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/pybind11-global-2.13.6-py311h3257749_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygments-2.18.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pyproject_hooks-1.1.0-pyhd8ed1ab_0.conda
@@ -537,7 +542,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/91/c0/104cb6244c83fe6bc3886f144cc433db0c0c78efac5dc00e409a5a08c87d/meson_python-0.16.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b6/2f/a3bc50fa63fc4fe9348e15b53dc8c87febfd4e0c660fcf250c4b19a3aa3b/ninja-1.11.1.1-py2.py3-none-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/13/2f/0f24b288e2ce56f51c920137620b4434a38fd80583dbbe24fc2a1656c388/pybind11-2.13.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/aa/5f/bb5970d3d04173b46c9037109f7f05fc8904ff5be073ee49bb6ff00301bc/pyproject_metadata-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6b/77/7440a06a8ead44c7757a64362dd22df5760f9b12dc5f11b6188cd2fc27a0/pytest-8.3.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/78/3a/af5b4fa5961d9a1e6237b530eb87dd04aea6eb83da09d2a4073d81b54ccf/pytest_cov-5.0.0-py3-none-any.whl
@@ -5381,14 +5385,184 @@ packages:
   - pytest ; extra == 'testing'
   - pytest-benchmark ; extra == 'testing'
   requires_python: '>=3.8'
-- kind: pypi
+- kind: conda
   name: pybind11
   version: 2.13.6
-  url: https://files.pythonhosted.org/packages/13/2f/0f24b288e2ce56f51c920137620b4434a38fd80583dbbe24fc2a1656c388/pybind11-2.13.6-py3-none-any.whl
-  sha256: 237c41e29157b962835d356b370ededd57594a26d5894a795960f0047cb5caf5
-  requires_dist:
-  - pybind11-global==2.13.6 ; extra == 'global'
-  requires_python: '>=3.7'
+  build: py311h2c37856_0
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/pybind11-2.13.6-py311h2c37856_0.conda
+  sha256: 2387917a68534fa86990459b2f0967f51f118241c4ca10537fd16c1ae40d505a
+  md5: 4caec10f7a5217c98c3295fc7389332d
+  depends:
+  - __osx >=11.0
+  - libcxx >=17
+  - pybind11-global 2.13.6 py311h2c37856_0
+  - python >=3.11,<3.12.0a0
+  - python >=3.11,<3.12.0a0 *_cpython
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11?source=hash-mapping
+  size: 198418
+  timestamp: 1726288592472
+- kind: conda
+  name: pybind11
+  version: 2.13.6
+  build: py311h3257749_0
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/pybind11-2.13.6-py311h3257749_0.conda
+  sha256: ecf6c35303a533f8f4ed48a92f21984dafb3f01b64f949a4064a514d5df5c58f
+  md5: 4989bc371c474daba8cfa8ec02c9c2d1
+  depends:
+  - pybind11-global 2.13.6 py311h3257749_0
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11?source=hash-mapping
+  size: 246761
+  timestamp: 1726289567605
+- kind: conda
+  name: pybind11
+  version: 2.13.6
+  build: py311hd18a35c_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/pybind11-2.13.6-py311hd18a35c_0.conda
+  sha256: d5dde374721ae7b1b3aa3f948a311246b60950cb032f0c7935822f67fc13e45c
+  md5: 95c138b38697b9f22babac81be5d3f18
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - libstdcxx >=13
+  - pybind11-global 2.13.6 py311hd18a35c_0
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11?source=hash-mapping
+  size: 197817
+  timestamp: 1726288449568
+- kind: conda
+  name: pybind11
+  version: 2.13.6
+  build: py311hf2f7c97_0
+  subdir: osx-64
+  url: https://conda.anaconda.org/conda-forge/osx-64/pybind11-2.13.6-py311hf2f7c97_0.conda
+  sha256: 67c0222545d936fe889b8199d17d7f9a66b872fee00bef6bb158561440c6c9ac
+  md5: 5217234c10a39cef52d5963fb2bfa52f
+  depends:
+  - __osx >=10.13
+  - libcxx >=17
+  - pybind11-global 2.13.6 py311hf2f7c97_0
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11?source=hash-mapping
+  size: 198079
+  timestamp: 1726288580078
+- kind: conda
+  name: pybind11-global
+  version: 2.13.6
+  build: py311h2c37856_0
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/pybind11-global-2.13.6-py311h2c37856_0.conda
+  sha256: 743ce32d1d69827a8f38b377761bce78d5aab49e82351b044bb867c17c937151
+  md5: f44af608f78424f37e3394052758f475
+  depends:
+  - __osx >=11.0
+  - libcxx >=17
+  - python >=3.11,<3.12.0a0
+  - python >=3.11,<3.12.0a0 *_cpython
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11-global?source=hash-mapping
+  size: 182530
+  timestamp: 1726288549264
+- kind: conda
+  name: pybind11-global
+  version: 2.13.6
+  build: py311h3257749_0
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/pybind11-global-2.13.6-py311h3257749_0.conda
+  sha256: 085ef748978a51deeded7e7ffe77a603416dd4b82c3ca9b4e955a5c275097527
+  md5: a0507ef5fb425c4a012312a084d69f2f
+  depends:
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11-global?source=hash-mapping
+  size: 181761
+  timestamp: 1726288945978
+- kind: conda
+  name: pybind11-global
+  version: 2.13.6
+  build: py311hd18a35c_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/pybind11-global-2.13.6-py311hd18a35c_0.conda
+  sha256: c93c30d704e8dda6e2330029b1f9bdf4f05fc950a060e5340bd2a504123c025b
+  md5: 9f58057908a1d24a8852f35de556703f
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=13
+  - libstdcxx >=13
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11-global?source=hash-mapping
+  size: 181225
+  timestamp: 1726288431392
+- kind: conda
+  name: pybind11-global
+  version: 2.13.6
+  build: py311hf2f7c97_0
+  subdir: osx-64
+  url: https://conda.anaconda.org/conda-forge/osx-64/pybind11-global-2.13.6-py311hf2f7c97_0.conda
+  sha256: eb5eda217d0c3c7dfe2eed34891c3607b0d0cb646f4909246c4ff13bc5f2f781
+  md5: fa0ce022fea607805df80839c6242763
+  depends:
+  - __osx >=10.13
+  - libcxx >=17
+  - python >=3.11,<3.12.0a0
+  - python_abi 3.11.* *_cp311
+  constrains:
+  - pybind11-abi ==4
+  license: BSD-3-Clause
+  license_family: BSD
+  purls:
+  - pkg:pypi/pybind11-global?source=hash-mapping
+  size: 182337
+  timestamp: 1726288546222
 - kind: conda
   name: pycparser
   version: '2.22'

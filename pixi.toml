@@ -69,6 +69,7 @@ pkgconfig = ">=1.5.5,<2"
 # These are build dependencies, but necessary for pixi run commands with no-build-isolation
 compilers = ">=1.8.0,<2"
 git = ">=2.46.2,<3"
+pybind11 = ">=2.13.6,<3"
 
 # Also usually handled with pdm
 [pypi-dependencies]

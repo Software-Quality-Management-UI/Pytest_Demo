@@ -20,20 +20,21 @@ cov_install = { cmd = [
 cov_test = { cmd = [
     "pytest",
     "--cov=pybtst2024",
-    "--cov-report=lcov"
+    "--cov-report=lcov",
+    "--cov-branch"
 ], depends-on = ["cov_install"] }
 
 # Capture coverage data with lcov
 lcov_capture = { cmd = [
     "lcov",
     "--output-file", "coverage.cpp",
-    "--capture",
+    "--capture", "--rc", "lcov_branch_coverage=1",
     "--directory", "bbdir"
 ], depends-on = ["cov_test"] }
 
 # Extract coverage data related to the source directory
 lcov_extract = { cmd = [
-    "lcov",
+    "lcov", "--rc", "lcov_branch_coverage=1",
     "--output-file", "coverage.cpp",
     "--extract", "coverage.cpp", "$PWD/src/*"
 ], depends-on = ["lcov_capture"] }
@@ -44,7 +45,7 @@ lcov_combine = { cmd = [
 ], depends-on = ["lcov_extract"] }
 
 cover = { cmd = [
-    "lcov",
+    "lcov", "--rc", "lcov_branch_coverage=1",
     "--list", "coverage.combined"
 ], depends-on = ["lcov_combine"] }
 

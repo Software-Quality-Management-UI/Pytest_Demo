@@ -1,3 +1,4 @@
+# Defaults apply to all job definitions
 default:
   # Minimal pixi image
   image: ghcr.io/prefix-dev/pixi:latest
@@ -15,6 +16,7 @@ variables:
   # CI_PROJECT_DIR is a predefined variable, see https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
   RATTLER_CACHE_DIR: "$CI_PROJECT_DIR/.pixidust"
 
+# Pre-defined stages documented here: https://docs.gitlab.com/ee/ci/yaml/#stages
 setup_pixi:
   stage: .pre
   script:
@@ -27,12 +29,14 @@ mycompile:
   script:
     - pixi run pip install build
     - pixi run python -m build -v
+    - pixi run cover
   artifacts:
     paths:
       - "dist"
       - "tests"
       - "pixi.toml"
       - "pixi.lock"
+      - "coverage.combined"
     expire_in: 1h
 
 # Define some unit test job to be used as (unit) test stage
@@ -46,6 +50,14 @@ myunittest:
   script:
     - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
     - pixi run pytest
+    - pixi run pip install lcov_cobertura
+    - pixi run lcov_cobertura coverage.combined
   # Use artifact files from mycompile build phase as input
   dependencies:
     - mycompile
+  artifacts:
+    when: always # We want this artifact also when pipeline (=tests) failed.
+    reports: # Special report artifact type
+      coverage_report:
+        coverage_format: cobertura
+        path:  coverage.xml

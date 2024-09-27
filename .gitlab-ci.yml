@@ -5,7 +5,6 @@ default:
 setup_pixi:
   stage: .pre
   script:
-    - pixi add compilers
     - pixi install
 
 # Define some compile job to be used as build stage (calls pdm in pixi)

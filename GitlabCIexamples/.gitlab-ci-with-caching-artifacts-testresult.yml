@@ -1,0 +1,60 @@
+# Defaults apply to all job definitions
+default:
+  # Minimal pixi image
+  image: ghcr.io/prefix-dev/pixi:latest
+  # Directories to cache and key to identify cache
+  cache:
+    key: mycachekey
+    paths:
+      - .pixi/
+      - "$CI_PROJECT_DIR/.pixidust"
+
+# While variables are passed to all jobs definitions,
+# they are not defined within "default" section
+variables:
+  # RATTLER_CACHE_DIR is the backend for pixi, see https://github.com/prefix-dev/pixi/pull/683
+  # CI_PROJECT_DIR is a predefined variable, see https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+  RATTLER_CACHE_DIR: "$CI_PROJECT_DIR/.pixidust"
+
+# Pre-defined stages documented here: https://docs.gitlab.com/ee/ci/yaml/#stages
+setup_pixi:
+  stage: .pre
+  script:
+    - pixi install
+
+# Define some compile job to be used as build stage (calls pdm in pixi)
+mycompile:
+  stage: build
+  # Execute command, prefixed with pixi run
+  script:
+    - pixi run pip install build
+    - pixi run python -m build -v
+    - pixi run cover
+  artifacts:
+    paths:
+      - "dist"
+      - "tests"
+      - "pixi.toml"
+      - "pixi.lock"
+      - "coverage.combined"
+    expire_in: 1h
+
+# Define some unit test job to be used as (unit) test stage
+myunittest:
+  # In Gitlab, stage test   # runs after stage build
+  stage: test
+  # Prevent git clone (we import files as artefacts from previous stage).
+  variables:
+    GIT_STRATEGY: none
+  # Execute test command
+  script:
+    - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
+    - pixi run pytest --cov=pybtst2024 --junitxml=tests_junitstyle.xml
+  # Use artifact files from mycompile build phase as input
+  dependencies:
+    - mycompile
+  artifacts:
+    when: always # We want this artifact also when pipeline (=tests) failed.
+    reports: # Special report artifact type
+      junit:
+        - "tests_junitstyle.xml"

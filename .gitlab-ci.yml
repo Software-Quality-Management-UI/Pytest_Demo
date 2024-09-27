@@ -49,15 +49,12 @@ myunittest:
   # Execute test command
   script:
     - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
-    - pixi run pytest
-    - pixi run pip install lcov_cobertura
-    - pixi run lcov_cobertura coverage.combined
+    - pixi run pytest --cov=pybtst2024 --junitxml=tests_junitstyle.xml
   # Use artifact files from mycompile build phase as input
   dependencies:
     - mycompile
   artifacts:
     when: always # We want this artifact also when pipeline (=tests) failed.
     reports: # Special report artifact type
-      coverage_report:
-        coverage_format: cobertura
-        path:  coverage.xml
+      junit:
+        - "tests_junitstyle.xml"

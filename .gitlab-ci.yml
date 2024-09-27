@@ -6,6 +6,8 @@ setup_pixi:
   stage: .pre
   script:
     - pixi install
+    - apt-get update
+    - apt-get install -y git
 
 # Define some compile job to be used as build stage (calls pdm in pixi)
 mycompile:

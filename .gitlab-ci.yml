@@ -30,6 +30,7 @@ mycompile:
     - pixi run pip install build
     - pixi run python -m build -v
     - pixi run cover # Generate combined coverage
+  coverage: '/Total:\|\d+\.\d+%\s+\d+\|\d+\.\d+%\s+\d+\|(\d+\.\d+)%\s+\d+$/'
   artifacts:
     paths:
       - "dist"
@@ -74,7 +75,6 @@ myunittest:
   # 4. '\s+\d+' skips the branch count.
   # 5. '$' anchors the match to the end of the line.
   #
-  coverage: '/Total:\|\d+\.\d+%\s+\d+\|\d+\.\d+%\s+\d+\|(\d+\.\d+)%\s+\d+$/'
   # Use artifact files from mycompile build phase as input
   dependencies:
     - mycompile

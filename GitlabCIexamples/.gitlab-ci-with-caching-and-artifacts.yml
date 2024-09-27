@@ -29,12 +29,25 @@ mycompile:
   script:
     - pixi run pip install build
     - pixi run python -m build -v
+  artifacts:
+    paths:
+      - "dist"
+      - "tests"
+      - "pixi.toml"
+      - "pixi.lock"
+    expire_in: 1h
 
 # Define some unit test job to be used as (unit) test stage
 myunittest:
   # In Gitlab, stage test   # runs after stage build
   stage: test
+  # Prevent git clone (we import files as artefacts from previous stage).
+  variables:
+    GIT_STRATEGY: none
   # Execute test command
   script:
-    - pixi run pip install .
+    - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
     - pixi run pytest
+  # Use artifact files from mycompile build phase as input
+  dependencies:
+    - mycompile

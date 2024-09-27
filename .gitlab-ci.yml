@@ -29,7 +29,7 @@ mycompile:
   script:
     - pixi run pip install build
     - pixi run python -m build -v
-    - pixi run cover
+    - pixi run cover # Generate combined coverage
   artifacts:
     paths:
       - "dist"
@@ -50,6 +50,31 @@ myunittest:
   script:
     - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
     - pixi run pytest --cov=pybtst2024 --junitxml=tests_junitstyle.xml
+    - pixi run pip install lcov_cobertura # Convert to cobertura
+    - pixi run lcov_cobertura coverage.combined -d # -d demangles with c++flit
+  # Regex to parse lcov --list
+  # Breakdown of the regex:
+  # 1. 'Total:' matches the line where the overall coverage summary begins.
+  # 2. '\|\d+\.\d+%\s+\d+' is used to match and skip the line coverage percentage and the associated count.
+  # 3. '\|\d+\.\d+%\s+\d+' is used again to match and skip the function coverage percentage and count.
+  # 4. '\|(\d+\.\d+%)' captures the branch coverage percentage.
+  # 5. '\s+\d+' skips the number of branches associated with the branch coverage percentage.
+  # 6. '$' ensures that this regex matches at the end of the relevant line.
+  #
+  # Example match from output:
+  # Total:       |92.3%     39|83.3%     6|41.9%     31
+  #
+  # Explanation of captured groups:
+  # 1. 'Total:' identifies the line with the overall coverage summary.
+  # 2. The regex skips the Line and Function coverage fields:
+  #    - '\|\d+\.\d+%\s+\d+' matches the Line coverage percentage and count.
+  #    - '\|\d+\.\d+%\s+\d+' matches the Function coverage percentage and count.
+  # 3. The final part captures the Branch coverage percentage:
+  #    - '\|(\d+\.\d+%)' captures the Branch coverage percentage (e.g., '41.9%').
+  # 4. '\s+\d+' skips the branch count.
+  # 5. '$' anchors the match to the end of the line.
+  #
+  coverage: '/Total:\|\d+\.\d+%\s+\d+\|\d+\.\d+%\s+\d+\|(\d+\.\d+)%\s+\d+$/'
   # Use artifact files from mycompile build phase as input
   dependencies:
     - mycompile
@@ -58,3 +83,6 @@ myunittest:
     reports: # Special report artifact type
       junit:
         - "tests_junitstyle.xml"
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml

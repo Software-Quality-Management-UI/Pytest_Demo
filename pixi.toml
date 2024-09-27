@@ -70,3 +70,4 @@ pkgconfig = ">=1.5.5,<2"
 # These are build dependencies, but necessary for pixi run commands with no-build-isolation
 meson-python = ">=0.16.0,<0.17"
 pybind11 = ">=2.13.6,<3"
+compilers = ">=1.8.0,<2"

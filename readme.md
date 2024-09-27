@@ -1,16 +1,16 @@
 
 # Table of Contents
 
-1.  [About](#orgc76aa08)
-    1.  [Notes](#orgca05a94)
-    2.  [Coverage](#org434578d)
-        1.  [Python Coverage](#org3dc1058)
-        2.  [Combined Coverage](#org1ef82bc)
-        3.  [Pretty view](#org5b5961e)
-    3.  [License](#org9a68428)
+1.  [About](#orgcb52032)
+    1.  [Notes](#org6fc16b9)
+    2.  [Coverage](#org74f0414)
+        1.  [Python Coverage](#org92a8cde)
+        2.  [Combined Coverage](#orge169824)
+        3.  [Pretty view](#org2879307)
+    3.  [License](#org8110859)
 
 
-<a id="orgc76aa08"></a>
+<a id="orgcb52032"></a>
 
 # About
 
@@ -21,8 +21,10 @@ A repository demonstrating the usage of `pytest` within the `meson-python`
 ecosystem. Reproducibility is ensured via `pixi` and the `conda-ecosystem`.
 Includes Continuous Integration.
 
+The coverage report is [here](http://tolvunarfraedi.gitlab.io/pytest_demo_2024/): <http://tolvunarfraedi.gitlab.io/pytest_demo_2024/>
 
-<a id="orgca05a94"></a>
+
+<a id="org6fc16b9"></a>
 
 ## Notes
 
@@ -32,7 +34,7 @@ Includes Continuous Integration.
     present (i.e. `pip install ninja meson meson-python pybind11`)
 
 
-<a id="org434578d"></a>
+<a id="org74f0414"></a>
 
 ## Coverage
 
@@ -43,7 +45,7 @@ First we need to add some tools (already part of the environment):
     pip install ninja meson meson-python pybind11
 
 
-<a id="org3dc1058"></a>
+<a id="org92a8cde"></a>
 
 ### Python Coverage
 
@@ -60,7 +62,7 @@ Or if we want to store it for later:
     lcov --list coverage.lcov
 
 
-<a id="org1ef82bc"></a>
+<a id="orge169824"></a>
 
 ### Combined Coverage
 
@@ -94,7 +96,7 @@ Which will produce the coverage for both C++ and Python sections:
 Or in a single `pixi` invocation, `pixi run cover`.
 
 
-<a id="org5b5961e"></a>
+<a id="org2879307"></a>
 
 ### Pretty view
 
@@ -108,7 +110,7 @@ Where a much more visual depiction can be experienced at `localhost:8000`, and
 the steps above can also be encapsulated into a `pixi run covhttp` task.
 
 
-<a id="org9a68428"></a>
+<a id="org8110859"></a>
 
 ## License
 

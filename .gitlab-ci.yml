@@ -30,29 +30,6 @@ mycompile:
     - pixi run pip install build
     - pixi run python -m build -v
     - pixi run cover # Generate combined coverage
-  coverage: '/Total:\|\d+\.\d+%\s+\d+\|\d+\.\d+%\s+\d+\|(\d+\.\d+)%\s+\d+$/'
-  artifacts:
-    paths:
-      - "dist"
-      - "tests"
-      - "pixi.toml"
-      - "pixi.lock"
-      - "coverage.combined"
-    expire_in: 1h
-
-# Define some unit test job to be used as (unit) test stage
-myunittest:
-  # In Gitlab, stage test   # runs after stage build
-  stage: test
-  # Prevent git clone (we import files as artefacts from previous stage).
-  variables:
-    GIT_STRATEGY: none
-  # Execute test command
-  script:
-    - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
-    - pixi run pytest --cov=pybtst2024 --junitxml=tests_junitstyle.xml
-    - pixi run pip install lcov_cobertura # Convert to cobertura
-    - pixi run lcov_cobertura coverage.combined -d # -d demangles with c++flit
   # Regex to parse lcov --list
   # Breakdown of the regex:
   # 1. 'Total:' matches the line where the overall coverage summary begins.
@@ -75,6 +52,30 @@ myunittest:
   # 4. '\s+\d+' skips the branch count.
   # 5. '$' anchors the match to the end of the line.
   #
+  coverage: '/Total:\|\d+\.\d+%\s+\d+\|\d+\.\d+%\s+\d+\|(\d+\.\d+)%\s+\d+$/'
+  artifacts:
+    paths:
+      - "src"
+      - "dist"
+      - "tests"
+      - "pixi.toml"
+      - "pixi.lock"
+      - "coverage.combined"
+    expire_in: 1h
+
+# Define some unit test job to be used as (unit) test stage
+myunittest:
+  # In Gitlab, stage test   # runs after stage build
+  stage: test
+  # Prevent git clone (we import files as artefacts from previous stage).
+  variables:
+    GIT_STRATEGY: none
+  # Execute test command
+  script:
+    - pixi run pip install dist/pybtst2024-0.1.0-cp311-cp311-linux_x86_64.whl
+    - pixi run pytest --cov=pybtst2024 --junitxml=tests_junitstyle.xml
+    - pixi run pip install lcov_cobertura # Convert to cobertura
+    - pixi run lcov_cobertura coverage.combined -d # -d demangles with c++flit
   # Use artifact files from mycompile build phase as input
   dependencies:
     - mycompile
@@ -86,3 +87,34 @@ myunittest:
       coverage_report:
         coverage_format: cobertura
         path: coverage.xml
+    paths:
+      - "src"
+      - "coverage.combined"
+      - "pixi.toml"
+      - "pixi.lock"
+    expire_in: 1h
+
+# Web page generation job to be used as deploy stage
+# Important: the name of this job must be "pages", otherwise, GitLab will not publish it via GitLab pages!
+pages:
+  # Gitlab runs stage deploy after stage test
+  stage: deploy
+  # Prevent any git clone (we import files as artefacts from previous stage).
+  variables:
+    GIT_STRATEGY: none
+  # Execute command
+  script:
+    - pixi run genhtml -o covHTML coverage.combined --demangle-cpp
+    - mkdir public
+    - mv covHTML/* public/
+  artifacts:
+    # The generated web pages in directory public needs be exported as artifact
+    paths:
+      - public
+    expire_in: 1 h
+  # Use artifact files from myunittest job as input
+  dependencies:
+    - myunittest
+  only: # Execute only when to main or master branch has been committed
+    - main
+    - cidemo

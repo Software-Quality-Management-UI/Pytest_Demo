@@ -71,6 +71,7 @@ pkgconfig = ">=1.5.5,<2"
 compilers = ">=1.8.0,<2"
 git = ">=2.46.2,<3"
 pybind11 = ">=2.13.6,<3"
+pre-commit = ">=3.8.0,<4"
 
 # Also usually handled with pdm
 [pypi-dependencies]
